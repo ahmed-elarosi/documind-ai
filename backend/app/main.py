@@ -13,5 +13,5 @@ app.include_router(health.router)
 @app.get("/")
 def home():
     return {
-        "message": "DocuMind AI API running",
+        "message": "DocuMind AI API running On 8000",
     }
