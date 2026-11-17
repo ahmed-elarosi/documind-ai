@@ -1,9 +1,17 @@
 from fastapi import FastAPI
 from app.api.routes import health
+from app.core.config import settings
+
+title = settings.APP_NAME
+version = settings.APP_VERSION
+debug = settings.DEBUG
+
 
 app = FastAPI(
-    title="DocuMind AI API",
-    version="1.0",
+    title=title,
+    description="AI Powered Document Intelligence Platform",
+    version=version,
+    debug=debug,
 )
 
 
@@ -13,5 +21,5 @@ app.include_router(health.router)
 @app.get("/")
 def home():
     return {
-        "message": "DocuMind AI API running On 8000",
+        "message": f"Welcome to {title} at 8000",
     }
