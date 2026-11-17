@@ -1,4 +1,8 @@
 from fastapi import APIRouter
+from app.core.config import settings
+
+version = settings.APP_VERSION
+env = settings.ENVIRONMENT
 
 router = APIRouter(
     prefix="/health",
@@ -8,4 +12,9 @@ router = APIRouter(
 
 @router.get("/")
 def health_check():
-    return {"status": "healthy", "service": "documind-api", "version": "0.1.0"}
+    return {
+        "status": "healthy",
+        "service": "documind-api",
+        "version": version,
+        "environment": env,
+    }
