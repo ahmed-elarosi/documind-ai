@@ -21,5 +21,5 @@ app.include_router(health.router)
 @app.get("/")
 def home():
     return {
-        "message": f"Welcome to {title} at 8000",
+        "message": f"Welcome to {title}",
     }
